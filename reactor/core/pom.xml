@@ -9,7 +9,7 @@
 	</properties>
 
 	<parent>
-		<groupId>pl.oakfusion.spring</groupId>
+		<groupId>pl.oakfusion.sample</groupId>
 		<artifactId>reactor</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -18,7 +18,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<dependencies>
 		<dependency>
-			<groupId>pl.oakfusion.spring</groupId>
+			<groupId>pl.oakfusion.sample</groupId>
 			<artifactId>commons</artifactId>
 			<version>${project.version}</version>
 		</dependency>

@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>pl.oakfusion.spring</groupId>
+		<groupId>pl.oakfusion.sample</groupId>
 		<artifactId>reactor</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -24,7 +24,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>pl.oakfusion.spring</groupId>
+			<groupId>pl.oakfusion.sample</groupId>
 			<artifactId>core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -160,8 +160,8 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>3.0</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -187,6 +187,11 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>

@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>pl.oakfusion.spring</groupId>
+		<groupId>pl.oakfusion.sample</groupId>
 		<artifactId>reactor</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
