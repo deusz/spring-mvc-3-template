@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:tiles="http://www.thymeleaf.org">
+<head>
+	<title tiles:include="title">Layout</title>
+</head>
+<body>
+<div class="container">
+
+	<h1 tiles:include="title">Layout</h1>
+
+	<div tiles:substituteby="content">
+		Fake content
+	</div>
+</div>
+</body>
+</html>
