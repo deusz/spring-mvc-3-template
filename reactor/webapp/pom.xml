@@ -20,6 +20,7 @@
 		<webflow-version>2.3.2.RELEASE</webflow-version>
 		<thymeleaf-version>2.0.16</thymeleaf-version>
 		<thymeleaf-extras-version>2.0.0</thymeleaf-extras-version>
+		<wro4j.version>1.6.3</wro4j.version>
 	</properties>
 
 	<dependencies>
@@ -176,13 +177,72 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!--  Joda Time -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time-jsptags</artifactId>
 			<version>1.1.1</version>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>ro.isdc.wro4j</groupId>
+			<artifactId>wro4j-core</artifactId>
+			<version>${wro4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>ro.isdc.wro4j</groupId>
+			<artifactId>wro4j-extensions</artifactId>
+			<version>${wro4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<!--<exclusion>
+					<groupId>org.mozilla</groupId>
+					<artifactId>rhino</artifactId>
+				</exclusion>-->
+				<exclusion>
+					<groupId>org.jruby</groupId>
+					<artifactId>jruby-complete</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>me.n4u.sass</groupId>
+					<artifactId>sass-gems</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>nz.co.edmi</groupId>
+					<artifactId>bourbon-gem-jar</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.gmaven.runtime</groupId>
+					<artifactId>gmaven-runtime-1.7</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.github.lltyk</groupId>
+					<artifactId>dojo-shrinksafe</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 	</dependencies>
 
 	<build>

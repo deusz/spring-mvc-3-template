@@ -3,6 +3,7 @@ package pl.oakfusion.sample.webapp.config;
 import com.google.common.collect.Sets;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -17,11 +18,20 @@ import org.thymeleaf.spring3.SpringTemplateEngine;
 import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import javax.annotation.Resource;
+
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	private static final String RESOURCES_HANDLER = "/resources/";
 	private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
+
+	@Resource
+	private Environment environment;
+
+	@Resource
+	private WroModelHolder wroModelHolder;
+
 
 	@Override
 	public RequestMappingHandlerMapping requestMappingHandlerMapping() {
@@ -40,6 +50,11 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
+
+	/*@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new WroConfiguration.AddBundlingModelToViewModelInterceptor(wroModelHolder, environment.getProperty("bundling.enabled")));
+	}*/
 
 	public ServletContextTemplateResolver servletContextTemplateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
@@ -71,6 +86,4 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 		viewResolver.setTemplateEngine(springTemplateEngine());
 		return viewResolver;
 	}
-
-
 }

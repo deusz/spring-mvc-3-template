@@ -3,11 +3,15 @@ package pl.oakfusion.sample.webapp.config;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
+import java.util.EnumSet;
 import java.util.Set;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -29,9 +33,18 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		characterEncodingFilter.setInitParameter("encoding", "UTF-8");
 		characterEncodingFilter.setInitParameter("forceEncoding", "true");
 */
+		/*FilterRegistration.Dynamic wroContextFilter = servletContext.addFilter("WroContextFilter", new WroContextFilter());
+		wroContextFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "*//*");
+*/
+		FilterRegistration.Dynamic wro4jFilter = servletContext.addFilter("wro", new DelegatingFilterProxy("configurableWroFilter"));
+		wro4jFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/bundle/*");
+		wro4jFilter.setInitParameter("targetFilterLifecycle", "true");
+
 
 		servletContext.addListener(new ContextLoaderListener(context));
+		//servletContext.addListener(new WroServletContextListener());
 		servletContext.setInitParameter("defaultHtmlEscape", "true");
+
 
 		DispatcherServlet servlet = new DispatcherServlet();
 		// no explicit configuration reference here: everything is configured in the root container for simplicity

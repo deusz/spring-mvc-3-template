@@ -2,6 +2,10 @@
 <html xmlns:tiles="http://www.thymeleaf.org">
 <head>
 	<title tiles:include="title">Layout</title>
+	<!--<helper th:each="file : ${cssResources}" th:remove="tag">
+		<link rel="stylesheet" type="text/css" th:href="${file}" />
+	</helper>-->
+	<link rel="stylesheet" type="text/css" href="/bundle/main.css" />
 </head>
 <body>
 <div class="container">
