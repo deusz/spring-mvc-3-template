@@ -50,14 +50,14 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	}
 
 	@Bean
-	public TilesConfigurer thymeleafTilesConfigurer() {
+	public TilesConfigurer tilesConfigurer() {
 		ThymeleafTilesConfigurer tilesConfigurer = new ThymeleafTilesConfigurer();
 		tilesConfigurer.setDefinitions(new String[]{"/WEB-INF/tiles-defs.xml"});
 		return tilesConfigurer;
 	}
 
 
-	public SpringTemplateEngine springTemplateEngine() {
+	public SpringTemplateEngine templateEngine() {
 		SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
 		springTemplateEngine.setTemplateResolver(servletContextTemplateResolver());
 		springTemplateEngine.setAdditionalDialects(Sets.<IDialect>newHashSet(new TilesDialect()));
@@ -65,10 +65,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	}
 
 	@Bean
-	public ViewResolver thymeleafViewResolver() {
+	public ViewResolver viewResolver() {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setViewClass(ThymeleafTilesView.class);
-		viewResolver.setTemplateEngine(springTemplateEngine());
+		viewResolver.setTemplateEngine(templateEngine());
 		return viewResolver;
 	}
 }

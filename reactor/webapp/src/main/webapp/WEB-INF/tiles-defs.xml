@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
-		"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
-		"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-	<definition name="hello" template="layout">
-		<put-attribute name="title" value="hello/hello :: title"/>
-		<put-attribute name="content" value="hello/hello :: content"/>
+
+	<definition name="hello" template="layout" templateType="thymeleaf">
+		<put-attribute name="title" value="hello/hello :: title" type="thymeleaf"/>
+		<put-attribute name="content" value="hello/hello :: content" type="thymeleaf"/>
 	</definition>
 </tiles-definitions>
