@@ -33,16 +33,13 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		characterEncodingFilter.setInitParameter("encoding", "UTF-8");
 		characterEncodingFilter.setInitParameter("forceEncoding", "true");
 */
-		/*FilterRegistration.Dynamic wroContextFilter = servletContext.addFilter("WroContextFilter", new WroContextFilter());
-		wroContextFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "*//*");
-*/
+
 		FilterRegistration.Dynamic wro4jFilter = servletContext.addFilter("wro", new DelegatingFilterProxy("configurableWroFilter"));
 		wro4jFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/bundle/*");
 		wro4jFilter.setInitParameter("targetFilterLifecycle", "true");
 
 
 		servletContext.addListener(new ContextLoaderListener(context));
-		//servletContext.addListener(new WroServletContextListener());
 		servletContext.setInitParameter("defaultHtmlEscape", "true");
 
 
