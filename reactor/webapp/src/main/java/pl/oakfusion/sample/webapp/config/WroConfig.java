@@ -9,7 +9,7 @@ import ro.isdc.wro.manager.factory.WroManagerFactory;
 import java.util.Properties;
 
 @Configuration
-public class WroConfiguration {
+public class WroConfig {
 
 	public WroManagerFactory wroManagerFactory() {
 		ConfigurableWroManagerFactory wroManagerFactory = new ConfigurableWroManagerFactory();
