@@ -3,6 +3,7 @@ package pl.oakfusion.sample.webapp.config;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -28,11 +29,12 @@ public class WebAppInitializer implements WebApplicationInitializer {
 
 		/*FilterRegistration.Dynamic securityFilter = servletContext.addFilter("securityFilter", new DelegatingFilterProxy("springSecurityFilterChain"));
 		securityFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "*//*");
+*/
+
 		FilterRegistration.Dynamic characterEncodingFilter = servletContext.addFilter("characterEncodingFilter", new CharacterEncodingFilter());
 		characterEncodingFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 		characterEncodingFilter.setInitParameter("encoding", "UTF-8");
 		characterEncodingFilter.setInitParameter("forceEncoding", "true");
-*/
 
 		FilterRegistration.Dynamic wro4jFilter = servletContext.addFilter("wro", new DelegatingFilterProxy("configurableWroFilter"));
 		wro4jFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/bundle/*");
