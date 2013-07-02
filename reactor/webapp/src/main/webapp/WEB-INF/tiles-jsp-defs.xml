@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="hello" template="/WEB-INF/templates/jsp/hello/hello.jsp" >
+		<put-attribute name="title" value="by jsp" />
+		<put-attribute name="content" value="/WEB-INF/templates/jsp/hello/hellocontent.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/templates/jsp/hello/logo.jsp" />
+	</definition>
+</tiles-definitions>

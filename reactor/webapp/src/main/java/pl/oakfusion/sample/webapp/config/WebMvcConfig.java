@@ -2,7 +2,6 @@ package pl.oakfusion.sample.webapp.config;
 
 import com.google.common.collect.Sets;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -17,7 +16,7 @@ import org.thymeleaf.spring3.SpringTemplateEngine;
 import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-@Configuration
+
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	private static final String RESOURCES_HANDLER = "/resources/";
@@ -43,7 +42,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	public ServletContextTemplateResolver servletContextTemplateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-		templateResolver.setPrefix("/WEB-INF/templates/");
+		templateResolver.setPrefix("/WEB-INF/templates/myleaf/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
