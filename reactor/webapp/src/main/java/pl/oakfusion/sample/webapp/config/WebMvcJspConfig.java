@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
  * To change this template use File | Settings | File Templates.
  */
 
-@Configuration
+//@Configuration
 public class WebMvcJspConfig  extends WebMvcConfigurationSupport {
 
 	private static final String RESOURCES_HANDLER = "/resources/";
